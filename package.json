@@ -42,9 +42,7 @@
     "shortid": "^2.2.4",
     "skeleton-scss": "^2.0.4",
     "vision": "^4.1.0",
-    "xml2js": "^0.4.16"
-  },
-  "devDependencies": {
+    "xml2js": "^0.4.16",
     "autoprefixer": "^6.3.6",
     "babel-core": "^6.7.6",
     "babel-eslint": "^6.0.4",
@@ -77,5 +75,8 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    
   }
 }
