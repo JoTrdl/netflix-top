@@ -7,7 +7,7 @@
     "dev": "concurrently 'npm run dev-server' 'npm run dev-www'",
     "dev-server": "nodemon ./src/server",
     "dev-www": "webpack-dev-server --inline --hot --config ./src/www/webpack.config.js",
-    "build-www": "NODE_ENV=production webpack --config ./src/www/webpack.config.js",
+    "build-www": "NODE_ENV=production ./node_modules/.bin/webpack --config ./src/www/webpack.config.js",
     "start": "NODE_ENV=production node ./src/server",
     "test": "lab -c -S -v -l -r console -o stdout -r html -o coverage.html -t 90 --coverage-path ./src"
   },
