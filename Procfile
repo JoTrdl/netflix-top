@@ -1,1 +1,1 @@
-web: npm run build-www && nrpm run start
+web: npm run build-www && npm run start
