@@ -11,9 +11,6 @@ pids
 # Coverage report
 coverage.html
 
-# build
-build/
-
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 

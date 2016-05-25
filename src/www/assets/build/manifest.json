@@ -1,0 +1,9 @@
+{
+  "name": "Netflix Top",
+  "short_name": "Netflix Top",
+  "theme_color": "#e50914",
+  "background_color": "#141414",
+  "display": "standalone",
+  "start_url": "/",
+  "hash": "cf91d990556ff81c7bd1"
+}
