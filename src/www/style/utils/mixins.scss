@@ -1,0 +1,34 @@
+/* ----------------------------
+ * Breakpoint
+ * ------------------------------------------------------- */
+$BREAKPOINT-QUERY-SM-MIN: "(min-width: #{$BREAKPOINTS-SCREEN-SMALL})";
+$BREAKPOINT-QUERY-MD-MIN: "(min-width: #{$BREAKPOINTS-SCREEN-MEDIUM})";
+$BREAKPOINT-QUERY-LG-MIN: "(min-width: #{$BREAKPOINTS-SCREEN-LARGE})";
+
+$BREAKPOINT-QUERY-SM-ONLY: "(min-width: #{$BREAKPOINTS-SCREEN-SMALL}) and (max-width : #{$BREAKPOINTS-SCREEN-MEDIUM})";
+$BREAKPOINT-QUERY-MD-ONLY: "(min-width: #{$BREAKPOINTS-SCREEN-MEDIUM}) and (max-width : #{$BREAKPOINTS-SCREEN-LARGE})";
+$BREAKPOINT-QUERY-LG-ONLY: "(min-width: #{$BREAKPOINTS-SCREEN-LARGE})";
+
+@mixin breakpoint($point) {
+  @if $point == sm {
+    @media #{$BREAKPOINT-QUERY-SM-MIN} { @content ; }
+  }
+  @else if $point == md {
+    @media #{$BREAKPOINT-QUERY-MD-MIN} { @content ; }
+  }
+  @else if $point == lg {
+    @media #{$BREAKPOINT-QUERY-LG-MIN} { @content ; }
+  }
+}
+
+@mixin breakpoint-only($point) {
+  @if $point == sm {
+    @media #{$BREAKPOINT-QUERY-SM-ONLY} { @content ; }
+  }
+  @else if $point == md {
+    @media #{$BREAKPOINT-QUERY-MD-ONLY} { @content ; }
+  }
+  @else if $point == lg {
+    @media #{$BREAKPOINT-QUERY-LG-ONLY} { @content ; }
+  }
+}

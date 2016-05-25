@@ -1,0 +1,37 @@
+section {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: $HEADER-HEIGHT*2;
+  max-width: $CONTENT-MAX-WIDTH;
+
+  @include breakpoint-only(sm) {
+    margin-top: $HEADER-HEIGHT*3;
+  }
+
+  h3, a { text-align: center; }
+  h3 { font-weight: bold; }
+  .message-status { padding-top: 2em; }
+  
+  li { 
+    display: inline-block;
+    width: 23%;
+    margin: 1%;
+    vertical-align: top;
+
+    &:nth-child(4n+2) {
+      .description { margin-left: -108%;}
+    }
+    &:nth-child(4n+3) {
+      .description { margin-left: -216%;}
+    }
+    &:nth-child(4n+4) {
+      .description { margin-left: -326%;}
+    }
+  }
+
+  img {
+    position: relative;
+    width: 100%;
+  }
+  &.focus item:not(.opened) img { opacity: .1; }
+}

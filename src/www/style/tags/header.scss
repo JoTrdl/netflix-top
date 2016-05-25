@@ -1,0 +1,37 @@
+header {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  background-color: transparentize($BODY-BACKGROUND-COLOR, 0.15);
+  border-bottom: 1px solid #000;
+
+  .title {
+    font-weight: bold;
+    color: #e50914; // Netflix red
+    float: left;
+    margin: 0.2em 0;
+    span { 
+      color: $TYPO-FONT-COLOR;
+      font-size: .73em;
+    }
+  }
+
+  category {
+    float: right;
+
+    select {
+      margin: 1.5em 0;
+      color: #222;
+      border: none;
+
+      &:focus, &:active { border: none; }
+    }
+
+    @include breakpoint-only(sm) {
+      float: right;
+      display: block;
+      width: 100%;
+    }
+  }
+}

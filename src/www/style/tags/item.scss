@@ -1,0 +1,22 @@
+item {
+  img { cursor: pointer; }
+
+  .description {
+    height: 0;
+    opacity: 0;
+    width: 426%;
+    overflow: hidden;
+    transition: opacity ease-in .3s;
+    will-change: opacity;
+
+    a {
+      display: block;
+      color: inherit;
+    }
+  }
+
+  &.opened .description {
+    height: auto;
+    opacity: 1;
+  }
+}
