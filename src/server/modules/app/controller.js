@@ -20,7 +20,7 @@ exports.config = {
 
 exports.handler = function(request, reply) {
 
-  const category = request.params.category || 'top';
+  const category = request.params.category || '100';
 
   service
     .fetch(category)
