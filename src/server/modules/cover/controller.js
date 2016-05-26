@@ -1,7 +1,7 @@
 'use strict';
 
 const Joi = require('joi'),
-      config = require('../../../config');
+      config = require(`${ROOT}/config`);
 
 exports.config = {
   cache: {

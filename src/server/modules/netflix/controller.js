@@ -1,8 +1,8 @@
 'use strict';
 
 const Joi = require('joi'),
-      config = require('../../../config'),
-      service = require('../../../services/netflix.service');
+      config = require(`${ROOT}/config`),
+      service = require(`${ROOT}/services/netflix.service`);
 
 exports.config = {
   cache: {

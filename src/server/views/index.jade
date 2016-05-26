@@ -7,17 +7,17 @@ html
     meta(name='mobile-web-app-capable', content='yes')
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name='theme-color', content='#673AB8')
-    if env == 'production'
+    if config.env == 'production'
       link(rel='stylesheet', href='/bundle.#{manifest.hash}.css')
     else
-      link(rel='stylesheet', href='http://localhost:8080/bundle.css')
+      link(rel='stylesheet', href='http://#{config.connections.webpack.host}:#{config.connections.webpack.port}/bundle.css')
   body
     | !{app}
     script
       | window.STORE = !{store}
-    if env == 'production'
+    if config.env == 'production'
       script(src='/bundle.#{manifest.hash}.js')
     else
-      script(src='http://localhost:8080/bundle.js')
+      script(src='http://#{config.connections.webpack.host}:#{config.connections.webpack.port}/bundle.js')
     
 

@@ -1,7 +1,7 @@
 
 'use strict';
 
-const config = require('../config');
+const config = require(`${ROOT}/config`);
 
 module.exports = {
 

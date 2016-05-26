@@ -4,13 +4,14 @@ const Promise = require('bluebird'),
       Glob = Promise.promisify(require('glob')),
       riot = require('riot');
 
-const store = require('../../../store'),
-      service = require('../../../services/netflix.service');
+const config = require(`${ROOT}/config`),
+      store = require(`${ROOT}/store`),
+      service = require(`${ROOT}/services/netflix.service`);
 
-const manifest = require('./../../../www/manifest.json');
+const manifest = require(`${ROOT}/www/manifest.json`);
 
 // Load all tags
-new Glob('./../../../www/**/*.tag', {cwd: __dirname}).then((tags) => {
+new Glob(`${ROOT}/www/**/*.tag`, {cwd: __dirname}).then((tags) => {
   tags.forEach((tag) => require(tag));
 });
 
@@ -34,7 +35,7 @@ exports.handler = function(request, reply) {
       }
 
       reply.view('index', {
-        env: process.env.NODE_ENV,
+        config: config,
         manifest: manifest,
         app: riot.render('app', {store: store}),
         store: JSON.stringify(store.getState())

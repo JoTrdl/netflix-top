@@ -118,7 +118,7 @@ module.exports = {
   devtool: (ENV === 'production') ? 'source-map' : 'cheap-module-eval-source-map',
 
   devServer: {
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 8081,
     host: '0.0.0.0',
     publicPath: '/',
     contentBase: `${__dirname}`,
