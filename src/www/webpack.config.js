@@ -24,30 +24,19 @@ const manifest = require('./manifest.json');
 const BASE_PLUGINS = [
   {
     apply: function(compiler) {
-      const spinner = ora('Building for production...');
-      compiler.plugin('compilation', () => spinner.start());
       compiler.plugin('emit', (compilation, callback) => {
         manifest.hash = compilation.hash;
         fs.writeFile(`${__dirname}/manifest.json`, JSON.stringify(manifest, null, 2), callback);
       });
-      compiler.plugin('done', () => spinner.stop());
     }
   },
-  new ExtractTextPlugin('bundle.[hash].css'),
+  new ExtractTextPlugin((ENV === 'production') ? 'bundle.[hash].css' : 'bundle.css'),
   new DefinePlugin({
     'ENV': JSON.stringify(ENV),
     'process.env.NODE_ENV': JSON.stringify(ENV)
   }),
   new ProvidePlugin({
     riot: 'riot'
-  }),
-  new HtmlWebpackPlugin({
-    template: './index.html',
-    minify: {
-      collapseWhitespace: true,
-      removeComments: true
-    },
-    title: manifest.title
   })
 ];
 
@@ -55,6 +44,13 @@ const BASE_PLUGINS = [
  * Additional plugins for production
  */
 const PRODUCTION_PLUGINS = [
+  {
+    apply: function(compiler) {
+      const spinner = ora('Building for production...');
+      compiler.plugin('compilation', () => spinner.start());
+      compiler.plugin('done', () => spinner.stop());
+    }
+  },
   new CleanWebpackPlugin([BUILD_DIR], {
     root: ROOT,
     verbose: true
@@ -86,8 +82,8 @@ module.exports = {
   output: {
     path: `${ROOT}/${BUILD_DIR}`,
     publicPath: '/',
-    filename: 'bundle.[hash].js',
-    chunkFilename: '[name].[chunkhash].chunk.js'
+    filename: (ENV === 'production') ? 'bundle.[hash].js' : 'bundle.js',
+    chunkFilename: (ENV === 'production') ? '[name].[chunkhash].chunk.js' : '[name].chunk.js'
   },
 
   resolve: {
@@ -125,9 +121,7 @@ module.exports = {
     port: process.env.PORT || 8080,
     host: '0.0.0.0',
     publicPath: '/',
-    // quiet: true,
-    compress: true,
     contentBase: `${__dirname}`,
-    historyApiFallback: true
+    historyApiFallback: true,
   }
 };

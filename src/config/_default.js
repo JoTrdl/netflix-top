@@ -21,6 +21,11 @@ module.exports = {
     }
   },
 
+  views: {
+    engines: { jade: require('jade') },
+    path: Path.join(__dirname, '/../server/views')
+  },
+
   caching: {
     ttl: 60 * 60 * 1000 // 1 hour
   },

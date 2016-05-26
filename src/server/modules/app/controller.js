@@ -32,7 +32,9 @@ exports.handler = function(request, reply) {
         store.dispatch({type: 'UPDATE_CATEGORY', data: category});
         store.dispatch({type: 'SERVER_RENDERED'});
       }
+
       reply.view('index', {
+        env: process.env.NODE_ENV,
         manifest: manifest,
         app: riot.render('app', {store: store}),
         store: JSON.stringify(store.getState())
