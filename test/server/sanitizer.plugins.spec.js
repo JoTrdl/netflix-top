@@ -1,11 +1,12 @@
 
 'use strict';
 
+const live = require('uncache')(require)
 const Code = require('code');
 const Lab = require('lab');
 const lab = exports.lab = Lab.script();
 
-const Server = require(process.env.PWD + '/src/server');
+const Server = live(process.env.PWD + '/src/server');
 
 lab.experiment('Plugins', () => {
   let server;
