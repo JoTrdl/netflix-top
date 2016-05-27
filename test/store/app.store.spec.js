@@ -15,9 +15,16 @@ lab.experiment('Store', () => {
     return Promise.resolve();
   });
 
-  lab.test('should update the state', () => {
-    store.dispatch({type: 'UPDATE_TITLE', data: 'new title'});
+  lab.test('should update the state with direct dispatch', () => {
+    store.dispatch({type: 'SET_TITLE', title: 'new title'});
     Code.expect(store.getState().title).to.equal('new title');
+
+    return Promise.resolve();
+  });
+
+  lab.test('should update the with actions creator', () => {
+    store.dispatch(store.actions.setTitle('Other new title'));
+    Code.expect(store.getState().title).to.equal('Other new title');
 
     return Promise.resolve();
   });

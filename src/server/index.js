@@ -11,14 +11,6 @@ global.ROOT = Path.join(__dirname, '../');
 if (!process.env.NODE_ENV)
   process.env.NODE_ENV = 'development';
 
-// Add a custom require that will resolve ~/xxxx to the ../ directory
-/*module.constructor.prototype.require = function(path) {
-  if (path.indexOf('~/') === 0) {
-    path = path.replace('~/', Path.join(__dirname, '../'));
-  }
-  return this.constructor._load(path, this);
-}*/
-
 const manifest = require('./manifest'),
       config = require(`${ROOT}/config`),
       options = { relativeTo: __dirname };

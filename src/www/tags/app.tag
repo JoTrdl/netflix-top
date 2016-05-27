@@ -23,17 +23,8 @@
     this.update();
   });
 
-  this.fetchCategory = (category) => {
-    store.dispatch({type: 'FETCH_INIT'});
-    fetch(SERVICE_URL + '/feed/' + category)
-      .then((response) => response.json())
-      .then((data) => store.dispatch({type: 'FETCH_SUCCESS', data: data}))
-      .catch((e) => store.dispatch({type: 'FETCH_ERROR', data: e}))
-  }
-
   riot.route('/top/*', (category) => {
-    store.dispatch({type: 'UPDATE_CATEGORY', data: category});
-    this.fetchCategory(category);
+    store.dispatch(store.actions.updateCategory(category));
     this.close();
   });
   riot.route.base('/');

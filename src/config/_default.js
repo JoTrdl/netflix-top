@@ -2,13 +2,13 @@
 const Path = require('path');
 
 module.exports = {
-  env: 'default',
+  env: process.env.NODE_ENV || 'default',
 
   connections: {
     server: {
       labels: ['server'],
       port: process.env.PORT || 80,
-      host: process.env.HOST || process.env.HOSTNAME,
+      host: process.env.HOST || process.env.HOSTNAME || 'localhost',
       routes: {
         cors: {
           origin: ['*'],

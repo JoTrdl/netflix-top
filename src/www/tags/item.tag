@@ -1,5 +1,5 @@
 <item class="{opened: opened}">
-  <img onclick={open} data-src="{SERVICE_URL + '/cover/' + data.id}" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" crossorigin="anonymous"/>
+  <img onclick={open} data-src="{'/cover/' + data.id}" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" crossorigin="anonymous"/>
   <div class="description">
     <h3>{data.title}</h3>
     <p>{data.description}</p>

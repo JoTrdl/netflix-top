@@ -38,6 +38,7 @@
     "moment": "^2.12.0",
     "node-uuid": "^1.4.7",
     "redux": "^3.4.0",
+    "redux-thunk": "^2.1.0",
     "riot": "^2.4.0",
     "shortid": "^2.2.4",
     "skeleton-scss": "^2.0.4",
