@@ -4,13 +4,13 @@
 A basic isomorphic app, featuring:
 
  * [Riot](http://riotjs.com/)
- * [Redux](http://redux.js.org/)
+ * [Redux](http://redux.js.org/) + [Redux-thunk](https://github.com/gaearon/redux-thunk)
  * [Hapi](http://hapijs.com/) 
  * [Webpack](https://webpack.github.io/docs/)/[ES6](https://babeljs.io/) 
 
 With extra setup (inputs sanitizaton, lab testing, ...)
 
-The final javascript size is around **18Kb** (min+gz) containing mainly riot + redux + isomorphic-fetch + colorchart + app code.
+The final javascript size is around **18Kb** (min+gz) containing mainly riot + redux + redux-thunk + isomorphic-fetch + colorchart + app code.
 
 
 ### Installation
