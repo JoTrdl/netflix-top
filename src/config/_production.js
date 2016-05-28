@@ -1,4 +1,3 @@
-console.log('production', process.env.HOST || process.env.HOSTNAME, require('os').hostname() )
 module.exports = {
   env: 'production',
 
