@@ -29,7 +29,7 @@ module.exports = Glue.compose(manifest, options).then((server) => {
   return Promise.resolve(server).call('start').return(server);
 })
 .then((server) => {
-  server.log(['info', 'server'], 'Server running at:' + server.info.uri);
+  server.log(['info', 'server'], `Server running at: ${server.info.uri} in ${process.env.NODE_ENV} mode`);
   return server;
 })
 .catch((e) => console.error(e));
