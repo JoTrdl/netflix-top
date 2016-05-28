@@ -1,10 +1,10 @@
-
+console.log('production', process.env.HOST || process.env.HOSTNAME, require('os').hostname() )
 module.exports = {
   env: 'production',
 
   connections: {
     server: {
-      host: process.env.HOST || process.env.HOSTNAME
+      host: require('os').hostname()
     }
   }
 };
