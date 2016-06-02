@@ -38,6 +38,7 @@ module.exports = {
     { plugin: { register: 'h2o2'} },
     { plugin: { register: 'hapi-boom-decorators'} },
     { plugin: { register: './plugins/sanitizer'} },
+    { plugin: { register: './plugins/error'} },
     { plugin: { register: './modules'} }
   ]
 };

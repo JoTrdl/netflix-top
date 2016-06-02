@@ -15,7 +15,7 @@ module.exports = {
           credentials: true
         },
         files: {
-          relativeTo: Path.join(__dirname, '/../www/assets/build')
+          relativeTo: Path.join(__dirname, '/../www/assets')
         }
       }
     }
