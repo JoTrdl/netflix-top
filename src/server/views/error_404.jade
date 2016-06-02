@@ -1,49 +1,42 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    title #{ manifest.name }
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui')
-    meta(name='mobile-web-app-capable', content='yes')
-    meta(name='apple-mobile-web-app-capable', content='yes')
-    meta(name='theme-color', content='#673AB8')
-    script(src='/shine.min.js')
-    style.
-      body {
-        font-family: Helvetica, Arial, sans-serif;
-        font-size: 6em; 
-        background: #000; 
-        color: #000;
-        text-align: center;
-        padding: 5%;
-        webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none;   /* Chrome/Safari/Opera */
-        -khtml-user-select: none;    /* Konqueror */
-        -moz-user-select: none;      /* Firefox */
-        -ms-user-select: none;       /* Internet Explorer/Edge */
-        user-select: none;
-      }
-      h1 { padding: 0; }
-  body
-    h1#title Page Not Found
-    script.
-      var shine = new Shine(document.getElementById('title'), {
-        numSteps: 5,
-        opacity: 0.3,
-        opacityPow: 1.2,
-        offset: 0.15,
-        offsetPow: 1.8,
-        blur: 40,
-        blurPow: 1,
-        text: new shinejs.Color(0, 0, 0), 
-        shadowRGB: new shinejs.Color(255,255,255),
-        background: new shinejs.Color(0, 0, 0)
-      });
-      function handleMouseMove(event) {
-        shine.light.position.x = event.clientX;
-        shine.light.position.y = event.clientY;
-        shine.draw();
-      }
-      window.addEventListener('mousemove', handleMouseMove, false);
-    
+extends ./layout.jade
 
+block script
+  script(src='/shine.min.js')
+block style
+  style.
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 4em; 
+      background: #000; 
+      color: #000;
+      text-align: center;
+      padding: 5%;
+      webkit-touch-callout: none;  /* iOS Safari */
+      -webkit-user-select: none;   /* Chrome/Safari/Opera */
+      -khtml-user-select: none;    /* Konqueror */
+      -moz-user-select: none;      /* Firefox */
+      -ms-user-select: none;       /* Internet Explorer/Edge */
+      user-select: none;
+    }
+    h1 { padding: 0; }
+
+block content
+  h1#title Page Not Found
+  script.
+    var shine = new Shine(document.getElementById('title'), {
+      numSteps: 5,
+      opacity: 0.3,
+      opacityPow: 1.2,
+      offset: 0.15,
+      offsetPow: 1.8,
+      blur: 80,
+      blurPow: 1,
+      shadowRGB: new shinejs.Color(255,255,255),
+      background: new shinejs.Color(0, 0, 0)
+    });
+    function handleMouseMove(event) {
+      shine.light.position.x = event.clientX;
+      shine.light.position.y = event.clientY;
+      shine.draw();
+    }
+    window.addEventListener('mousemove', handleMouseMove, false);

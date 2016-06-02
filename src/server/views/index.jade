@@ -1,23 +1,11 @@
-doctype html
-html
-  head
-    meta(charset='utf-8')
-    title #{ manifest.name }
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui')
-    meta(name='mobile-web-app-capable', content='yes')
-    meta(name='apple-mobile-web-app-capable', content='yes')
-    meta(name='theme-color', content='#673AB8')
-    if config.env == 'production'
-      link(rel='stylesheet', href='/build/bundle.#{manifest.hash}.css')
-    else
-      link(rel='stylesheet', href='http://#{config.connections.webpack.host}:#{config.connections.webpack.port}/bundle.css')
-  body
-    | !{app}
-    script
-      | window.STORE = !{store}
-    if config.env == 'production'
-      script(src='/build/bundle.#{manifest.hash}.js')
-    else
-      script(src='http://#{config.connections.webpack.host}:#{config.connections.webpack.port}/bundle.js')
-    
+extends ./layout.jade
 
+block content
+  | !{app}
+  script
+    | window.STORE = !{store}
+  if config.env == 'production'
+    script(src='/bundle.#{manifest.hash}.js')
+  else
+    script(src='http://#{config.connections.webpack.host}:#{config.connections.webpack.port}/bundle.js')
+  

@@ -25,7 +25,7 @@ exports.register = function(server, options, next) {
     path: '/{param}',
     handler: {
       directory: {
-        path: '.',
+        path: ['.', 'build'],
         redirectToSlash: true
       }
     }
