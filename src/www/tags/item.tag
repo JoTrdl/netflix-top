@@ -6,8 +6,6 @@
     <a href="{data.link}" target="blank">{data.link}</a>
   </div>
 
-  const isServer = !!(typeof window === 'undefined');
-
   this.data = opts.data;
   this.opened = false;
 
@@ -31,7 +29,7 @@
   };
 
   this.on('mount', function() {
-    if (isServer) return;
+    if (IS_SERVER) return;
 
     this.img = this.root.querySelector('img');
     document.addEventListener('scroll', this.lazyload);
@@ -40,7 +38,7 @@
   })
 
   this.on('unmount', function() {
-    if (isServer) return;
+    if (IS_SERVER) return;
     window.removeEventListener('scroll', this.lazyload);
     window.removeEventListener('resize', this.lazyload);
   })

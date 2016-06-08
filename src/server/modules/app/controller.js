@@ -11,10 +11,14 @@ const config = require(`${ROOT}/config`),
 
 const manifest = require(`${ROOT}/www/manifest.json`);
 
-// Load all tags
+// Require all tags
 new Glob(`${ROOT}/www/**/*.tag`, {cwd: __dirname}).then((tags) => {
   tags.forEach((tag) => require(tag));
 });
+
+// Add flags in global
+global.IS_CLIENT = false;
+global.IS_SERVER = true;
 
 exports.config = {
   

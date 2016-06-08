@@ -19,8 +19,8 @@ const actions = require('./actions'),
 
 const reducer = (state, action) => {
   const update = reducers[action.type] && reducers[action.type](state, action) || null;
-  return update || state || INITIAL_STATE;
+  return update || state;
 };
 
-module.exports = redux.createStore(reducer, redux.applyMiddleware(thunk));
+module.exports = redux.createStore(reducer, INITIAL_STATE, redux.applyMiddleware(thunk));
 module.exports.actions = actions;
